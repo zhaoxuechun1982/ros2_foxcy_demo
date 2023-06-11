@@ -5,7 +5,8 @@
 
 #include <memory>
 
-void OperationServer_Add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
-         std::shared_ptr<example_interfaces::srv::AddTwoInts::Response> response);
+void OperationServer_Handle(const std::shared_ptr<rmw_request_id_t> request_header,
+         const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
+         const std::shared_ptr<example_interfaces::srv::AddTwoInts::Response> response);
 
 #endif

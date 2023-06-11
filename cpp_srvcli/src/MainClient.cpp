@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
   }
 
-  OperationClient_Do(node, client, request);
+  OperationClient_Handle(node, client, request);
 
   rclcpp::shutdown();
   return 0;
