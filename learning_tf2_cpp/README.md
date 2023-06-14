@@ -8,3 +8,6 @@
 ## V0.0.2
 ### 1.Add topic dynamic frame listener class;
 ### 2.Add topic dynamic frame listener node.
+## V0.0.3
+### 1.Add topic fixed frame broadcaster class;
+### 2.Add topic fixed frame broadcaster node.

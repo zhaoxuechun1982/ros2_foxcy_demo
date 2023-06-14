@@ -61,6 +61,17 @@ ament_target_dependencies(
     turtlesim
 )
 
+add_executable(fixed_frame_tf2_broadcaster 
+    src/MainFrameFixedBroadcaster.cpp
+    src/FrameFixedBroadcaster.cpp
+)
+ament_target_dependencies(
+    fixed_frame_tf2_broadcaster
+    geometry_msgs
+    rclcpp
+    tf2_ros
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -76,6 +87,7 @@ install(TARGETS
    static_turtle_tf2_broadcaster
    dynamic_turtle_tf2_broadcaster
    dynamic_turtle_tf2_listener
+   fixed_frame_tf2_broadcaster
    DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch
