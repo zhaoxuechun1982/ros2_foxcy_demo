@@ -32,6 +32,8 @@ void FrameListenerDynamic::OnTimer()
       try 
       {
         t = tf_buffer_->lookupTransform(toFrameRel, fromFrameRel, tf2::TimePointZero);
+        //rclcpp::Time now = this->get_clock()->now();
+        //t = tf_buffer_->lookupTransform(toFrameRel, fromFrameRel, now, 50ms);
       } 
       catch (const tf2::TransformException & ex) 
       {
