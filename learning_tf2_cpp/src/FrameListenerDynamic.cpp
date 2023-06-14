@@ -31,9 +31,16 @@ void FrameListenerDynamic::OnTimer()
       // and send velocity commands for turtle2 to reach target_frame
       try 
       {
-        t = tf_buffer_->lookupTransform(toFrameRel, fromFrameRel, tf2::TimePointZero);
+        //t = tf_buffer_->lookupTransform(toFrameRel, fromFrameRel, tf2::TimePointZero);
+
+        // Demo of using time
         //rclcpp::Time now = this->get_clock()->now();
         //t = tf_buffer_->lookupTransform(toFrameRel, fromFrameRel, now, 50ms);
+        
+        // Demo of traveling in time
+        rclcpp::Time now = this->get_clock()->now();
+        rclcpp::Time when = now - rclcpp::Duration(5, 0);
+        t = tf_buffer_->lookupTransform(toFrameRel, now, fromFrameRel, when, "world", 50ms);
       } 
       catch (const tf2::TransformException & ex) 
       {
