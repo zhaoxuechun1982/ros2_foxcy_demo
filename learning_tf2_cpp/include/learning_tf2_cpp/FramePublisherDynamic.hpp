@@ -11,16 +11,20 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+#include <string>
+#include "geometry_msgs/msg/transform_stamped.hpp"
 #include "rclcpp/rclcpp.hpp"
-#include "tf2_ros/static_transform_broadcaster.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include "turtlesim/msg/pose.hpp"
 
-class StaticFramePublisher : public rclcpp::Node
+class FramePublisherDynamic : public rclcpp::Node
 {
 public:
-  explicit StaticFramePublisher(char* transformation[]);
-
+  FramePublisherDynamic();
 
 private:
-  void make_transforms(char * transformation[]);
-  std::shared_ptr<tf2_ros::StaticTransformBroadcaster> tf_static_broadcaster_;
+  void HandleTurtlePose(const std::shared_ptr<turtlesim::msg::Pose> msg);
+  rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr subscription_;
+  std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+  std::string turtlename_;
 };

@@ -1,16 +1,16 @@
 #include <memory>
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "tf2/LinearMath/Quaternion.h"
-#include "../include/learning_tf2_cpp/StaticFramePublisher.hpp"
+#include "../include/learning_tf2_cpp/FramePublisherStatic.hpp"
 
-StaticFramePublisher::StaticFramePublisher(char * transformation[]): Node("static_turtle_tf2_broadcaster")
+FramePublisherStatic::FramePublisherStatic(char * transformation[]): Node("static_turtle_tf2_broadcaster")
 {
   tf_static_broadcaster_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);  
   // Publish static transforms once at startup
-  this->make_transforms(transformation);
+  this->MakeTransforms(transformation);
 }
 
-void StaticFramePublisher::make_transforms(char * transformation[])
+void FramePublisherStatic::MakeTransforms(char * transformation[])
 {
   geometry_msgs::msg::TransformStamped t;
   t.header.stamp = this->get_clock()->now();

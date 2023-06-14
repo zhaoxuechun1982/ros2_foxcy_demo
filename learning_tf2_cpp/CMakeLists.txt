@@ -24,8 +24,8 @@ find_package(tf2_ros REQUIRED)
 find_package(turtlesim REQUIRED)
 
 add_executable(static_turtle_tf2_broadcaster 
-   src/MainStaicFramePublisher.cpp
-   src/StaticFramePublisher.cpp
+   src/MainFramePublisherStatic.cpp
+   src/FramePublisherStatic.cpp
 )
 ament_target_dependencies(
    static_turtle_tf2_broadcaster
@@ -33,6 +33,19 @@ ament_target_dependencies(
    rclcpp
    tf2
    tf2_ros
+)
+
+add_executable(dynamic_turtle_tf2_broadcaster 
+    src/MainFramePublisherDynamic.cpp
+    src/FramePublisherDynamic.cpp
+)
+ament_target_dependencies(
+    dynamic_turtle_tf2_broadcaster
+    geometry_msgs
+    rclcpp
+    tf2
+    tf2_ros
+    turtlesim
 )
 
 if(BUILD_TESTING)
@@ -48,6 +61,10 @@ endif()
 
 install(TARGETS
    static_turtle_tf2_broadcaster
+   dynamic_turtle_tf2_broadcaster
    DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch
+   DESTINATION share/${PROJECT_NAME})
 
 ament_package()

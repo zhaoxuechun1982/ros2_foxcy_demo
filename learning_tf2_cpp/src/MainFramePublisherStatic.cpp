@@ -1,5 +1,5 @@
 #include "rclcpp/rclcpp.hpp"
-#include "../include/learning_tf2_cpp/StaticFramePublisher.hpp"
+#include "../include/learning_tf2_cpp/FramePublisherStatic.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
 
   // Pass parameters and initialize node
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<StaticFramePublisher>(argv));
+  rclcpp::spin(std::make_shared<FramePublisherStatic>(argv));
   rclcpp::shutdown();
   return 0;
 }
