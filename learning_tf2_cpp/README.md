@@ -11,3 +11,6 @@
 ## V0.0.3
 ### 1.Add topic fixed frame broadcaster class;
 ### 2.Add topic fixed frame broadcaster node.
+## V0.0.4
+### 1.Add topic dynamic frame broadcaster class;
+### 2.Add topic dynamic frame broadcaster node.
