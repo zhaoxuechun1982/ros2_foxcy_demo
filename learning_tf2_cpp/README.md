@@ -18,3 +18,5 @@
 ### 1.Add look up transform with specific time code but not used.
 ## V0.0.6
 ### 1.Add look up transform with traveling time code.
+## V0.0.7
+### 1.Add dynamic frame listener debug demo.
