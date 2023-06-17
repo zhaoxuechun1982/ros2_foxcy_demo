@@ -20,3 +20,6 @@
 ### 1.Add look up transform with traveling time code.
 ## V0.0.7
 ### 1.Add dynamic frame listener debug demo.
+## V0.0.8
+### 1.Add point stamped listener class.
+### 1.Add point stamped listener node.

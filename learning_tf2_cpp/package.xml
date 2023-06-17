@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>learning_tf2_cpp</name>
-  <version>0.0.7</version>
+  <version>0.0.8</version>
   <description>Learning tf2 with rclcpp</description>
   <maintainer email="zhaoxuechun1982@sina.com">jimmy</maintainer>
   <license>Apache License 2.0</license>
@@ -14,6 +14,8 @@
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
   <depend>turtlesim</depend>
+  <depend>message_filters</depend>
+  <depend>tf2_geometry_msgs</depend>
 
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
