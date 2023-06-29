@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>cpp_pubsub</name>
-  <version>0.0.0</version>
+  <version>0.0.1</version>
   <description>Examples of minimal publisher/subscriber using rclcpp</description>
   <maintainer email="zhaoxuechun1982@sina.com">jimmy</maintainer>
   <license>Apache License 2.0</license>
@@ -10,6 +10,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
+  <depend>interfaces_tutorial</depend>
   
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

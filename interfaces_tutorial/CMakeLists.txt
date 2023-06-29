@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(cpp_srvcli)
+project(interfaces_tutorial)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -17,27 +17,20 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-#find_package(example_interfaces REQUIRED)
-#using custom interfaces
-find_package(interfaces_tutorial REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
-add_executable(server 
-src/MainServer.cpp
-src/OperationServer.cpp)
-#ament_target_dependencies(server rclcpp example_interfaces)
-ament_target_dependencies(server rclcpp interfaces_tutorial)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
-add_executable(client 
-src/MainClient.cpp
-src/OperationClient.cpp)
-#ament_target_dependencies(client rclcpp example_interfaces)
-ament_target_dependencies(client rclcpp interfaces_tutorial)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Num.msg"
+  "msg/Sphere.msg"
+  "srv/AddThreeInts.srv"
+  DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
+)
 
-install(TARGETS
-  server
-  client
-  DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

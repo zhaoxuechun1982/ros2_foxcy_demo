@@ -22,16 +22,20 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+# use custom interfaces
+find_package(interfaces_tutorial REQUIRED)    
 
 add_executable(talker 
 src/MainPublisher.cpp 
 src/MinimalPublisher.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
+#ament_target_dependencies(talker rclcpp std_msgs)
+ament_target_dependencies(talker rclcpp interfaces_tutorial)
 
 add_executable(listener 
 src/MainSubscriber.cpp
 src/MinimalSubscriber.cpp)
-ament_target_dependencies(listener rclcpp std_msgs)
+#ament_target_dependencies(listener rclcpp std_msgs)
+ament_target_dependencies(listener rclcpp interfaces_tutorial)
 
 add_executable(listener_statistics
 src/MainSubscriberStatistics.cpp

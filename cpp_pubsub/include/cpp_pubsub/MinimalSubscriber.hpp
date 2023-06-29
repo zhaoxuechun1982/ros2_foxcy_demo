@@ -15,7 +15,13 @@
 #include <memory>
 
 #include "rclcpp/rclcpp.hpp"
+#include "InterfacesConfig.h"
+
+#ifndef CUSTOM_INTERFACES_SWITCH_ON
 #include "std_msgs/msg/string.hpp"
+#else
+#include "interfaces_tutorial/msg/num.hpp"
+#endif
 
 using std::placeholders::_1;
 
@@ -25,6 +31,13 @@ public:
   MinimalSubscriber();
 
 private:
+
+#ifndef CUSTOM_INTERFACES_SWITCH_ON
   void TopicCallback(const std_msgs::msg::String::SharedPtr msg) const;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+#else
+  void TopicCallback(const interfaces_tutorial::msg::Num::SharedPtr msg) const;
+  rclcpp::Subscription<interfaces_tutorial::msg::Num>::SharedPtr subscription_;
+#endif
+
 };
